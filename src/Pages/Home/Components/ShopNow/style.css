@@ -4,9 +4,9 @@ h1{
 }
 
 p{
-    font-size: 12px;
-    color: var(--placeholder);
-    font-weight: 500;
+    font-size: 12px !important;
+    color: var(--placeholder) !important;
+    font-weight: 500 !important;
 }
 
 .shopNowButton{
@@ -43,6 +43,7 @@ p{
     background-image: url(../../../../Images/header-homepage.png);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 470px !important;
 }
 
 @keyframes rotate{

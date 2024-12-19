@@ -1,8 +1,10 @@
 import React from 'react'
 import "./style.css"
 
-export default function Profile() {
+export default function Shop() {
   return (
-    <div></div>
+    <div>
+
+    </div>
   )
 }

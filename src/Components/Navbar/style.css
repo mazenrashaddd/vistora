@@ -7,8 +7,45 @@
     font-size: 11px;
 }
 
+.shopDropMenu{
+    transition: 0.3s all ease-in-out;
+}
+
+.shopMenu{
+    width: 450px;
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    left: -30%;
+    top: 150%;
+}
+
+.shopNavItem:hover .shopDropMenu{
+    transform: rotate(180deg);
+}
+
+.shopNavItem:hover .shopMenu{
+    display: block !important;
+}
+
+.shopMenu h2{
+    font-size: 11px;
+}
+
+.shopMenu p{
+    font-size: 10px !important;
+}
+
+.category{
+    transition: 0.1s all ease-in-out;
+}
+
+.category:hover{
+    background-color: #e9f2ff;
+}
+
 .nav-item:hover{
-    background-color: #eff6ff;
+    background-color: #e9f2ff;
 }
 
 .searchContainer{

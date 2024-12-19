@@ -8,6 +8,11 @@ import Cart from './Pages/Cart'
 import Profile from './Pages/Profile'
 import SignupDiscount from './Components/SignupDiscount'
 import Footer from './Components/Footer'
+import NotFound from './Components/NotFound'
+import Shop from './Pages/Shop'
+import Contact from './Components/Contact'
+import Login from "./Components/Authentication/Login"
+import Register from "./Components/Authentication/Register"
 
 export default function App() {
   return (
@@ -19,7 +24,12 @@ export default function App() {
           <Route path = "/home" element = {<Home/>}/>
           <Route path = "/cart" element = {<Cart/>}/>
           <Route path = "/profile" element = {<Profile/>}/>
+          <Route path = "/shop" element = {<Shop/>}/>
+          <Route path = "/login" element = {<Login/>}/>
+          <Route path = "/register" element = {<Register/>}/>
+          <Route path = "*" element = {<NotFound/>}/>
         </Routes>
+        <Contact/>
         <Footer/>
     </>
   )

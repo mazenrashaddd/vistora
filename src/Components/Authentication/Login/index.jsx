@@ -1,10 +1,9 @@
 import React from 'react'
-import "./style.css"
 
-export default function Contact() {
+export default function Login() {
   return (
     <div>
-      
+        
     </div>
   )
 }

@@ -1,0 +1,30 @@
+.reviewHeading{
+    font-size: 50px !important;
+}
+
+.slideIcon:hover{
+    background-color: #e9f2ff;
+}
+
+.forBlur{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(2px);
+}
+
+.starRate i{
+    margin-right: 2px;
+    color: orange;
+}
+
+.verifiedIcon{
+    color: rgb(5, 170, 5);
+    padding-top: 10px;
+}
+
+.card-text{
+    font-size: 12px;
+    color: var(--placeholder);
+    font-weight: 500;
+}

@@ -6,7 +6,6 @@ import NewArrivals from './Components/NewArrivals'
 import TopSelling from './Components/TopSelling'
 import BrowseByDressStyle from './Components/BrowseByDressStyle'
 import Reviews from './Components/Reviews'
-import Contact from './Components/Contact'
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <TopSelling/>
       <BrowseByDressStyle/>
       <Reviews/>
-      <Contact/>
     </>
   )
 }

@@ -1,10 +1,9 @@
 import React from 'react'
-import "./style.css"
 
-export default function Cart() {
+export default function Register() {
   return (
     <div>
-      
+        
     </div>
   )
 }

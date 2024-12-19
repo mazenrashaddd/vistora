@@ -20,7 +20,7 @@ export default function NewArrivals() {
                       <i className="fa-solid fa-star fa-xs"></i>
                       <i className="fa-solid fa-star fa-xs"></i>
                       <i className="fa-solid fa-star fa-xs"></i>
-                      <i class="fa-solid fa-star-half-stroke fa-xs"></i>
+                      <i className="fa-solid fa-star-half-stroke fa-xs"></i>
                     </div>
                     <div className='numberRate'>
                         4.5 <span> /5 </span>
@@ -43,7 +43,7 @@ export default function NewArrivals() {
                       <i className="fa-solid fa-star fa-xs"></i>
                       <i className="fa-solid fa-star fa-xs"></i>
                       <i className="fa-solid fa-star fa-xs"></i>
-                      <i class="fa-solid fa-star-half-stroke fa-xs"></i>
+                      <i className="fa-solid fa-star-half-stroke fa-xs"></i>
                     </div>
                     <div className='numberRate'>
                         4.5 <span> /5 </span>
@@ -66,7 +66,7 @@ export default function NewArrivals() {
                       <i className="fa-solid fa-star fa-xs"></i>
                       <i className="fa-solid fa-star fa-xs"></i>
                       <i className="fa-solid fa-star fa-xs"></i>
-                      <i class="fa-solid fa-star-half-stroke fa-xs"></i>
+                      <i className="fa-solid fa-star-half-stroke fa-xs"></i>
                     </div>
                     <div className='numberRate'>
                         4.5 <span> /5 </span>
@@ -89,7 +89,7 @@ export default function NewArrivals() {
                       <i className="fa-solid fa-star fa-xs"></i>
                       <i className="fa-solid fa-star fa-xs"></i>
                       <i className="fa-solid fa-star fa-xs"></i>
-                      <i class="fa-solid fa-star-half-stroke fa-xs"></i>
+                      <i className="fa-solid fa-star-half-stroke fa-xs"></i>
                     </div>
                     <div className='numberRate'>
                         4.5 <span> /5 </span>

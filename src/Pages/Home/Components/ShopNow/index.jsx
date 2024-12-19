@@ -5,7 +5,7 @@ import "./style.css"
 export default function ShopNow() {
   return (
     <div className="container">
-        <div className="row mt-5">
+        <div className="row mt-5 g-5">
           <div className="col-lg-6">
             <div className='w-100 h-100'>
               <h1 className='heading'> FIND CLOTHES THAT MATCHES YOUR STYLE </h1>
@@ -21,7 +21,7 @@ export default function ShopNow() {
                   <p> High-Quality Products </p>
                 </div>
                 <div className = "stats border-start ps-4">
-                  <h2 className='fw-bold'> 3000+ </h2>
+                  <h2 className='fw-bold'> 30000+ </h2>
                   <p> Happy Customers </p>
                 </div>
               </div>
