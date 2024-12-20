@@ -1,0 +1,17 @@
+.cartItemContainer{
+    max-width: 540px;
+    background-color: var(--back);
+    height: 120px !important;
+}
+
+.trash{
+    color: red;
+}
+
+.card-body{
+    height: 145px !important;
+}
+
+.cartItemContainer h4{
+    font-size: 18px !important;
+}
