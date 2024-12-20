@@ -98,7 +98,6 @@ export default function Items() {
                         </div>
                     </div>
                 </div>
-                <hr/>
             </div>
         </div>
     )

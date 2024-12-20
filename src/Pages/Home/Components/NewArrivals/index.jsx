@@ -102,7 +102,7 @@ export default function NewArrivals() {
         </div>
       </div>
 
-      <button className='viewAllButton btn btn-primary btn-light text-dark rounded-5 py-2 mt-2 mb-4'> View All </button>
+      <Link to = "/shop"><button className='viewAllButton btn btn-primary btn-light text-dark rounded-5 py-2 mt-2 mb-4'> View All </button></Link>
       <hr className='mb-5'/>
     </div>
   )

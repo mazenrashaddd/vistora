@@ -4,6 +4,15 @@
     height: 120px !important;
 }
 
+.cartItemContainer p, span{
+    color: black !important;
+    font-size: 11px !important;
+}
+
+.cartItemContainer span{
+    color: var(--placeholder) !important;
+}
+
 .trash{
     color: red;
 }

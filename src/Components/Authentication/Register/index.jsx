@@ -19,9 +19,13 @@ export default function Register() {
             <input id = "password" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "password" placeholder='Enter your password'/>
             <i className="inputIcon fa-solid fa-lock fa-2xs"></i>
           </div>
-          <div className="position-relative d-flex justify-content-center mb-2">
+          <div className="position-relative d-flex justify-content-center">
             <input id = "confirm-password" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "password" placeholder='Confirm your password'/>
             <i className="inputIcon fa-solid fa-lock fa-2xs"></i>
+          </div>
+          <div className="position-relative d-flex justify-content-center mb-2">
+            <input id = "date" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "date"/>
+            <i class="inputIcon fa-solid fa-calendar-days fa-2xs"></i>
           </div>
           <div className="d-flex justify-content-between align-items-center mb-4">
             <div className='d-flex align-items-center'>

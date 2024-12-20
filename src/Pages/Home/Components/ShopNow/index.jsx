@@ -1,6 +1,7 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./style.css"
+import { Link } from 'react-router-dom'
 
 export default function ShopNow() {
   return (
@@ -10,7 +11,7 @@ export default function ShopNow() {
             <div className='w-100 h-100'>
               <h1 className='heading'> FIND CLOTHES THAT MATCHES YOUR STYLE </h1>
               <p className='mt-4'> Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style. </p>
-              <button className='shopNowButton btn btn-primary rounded-5 mt-1 border-0 shadow'> Shop Now </button>
+              <Link to = "/shop"><button className='shopNowButton btn btn-primary rounded-5 mt-1 border-0 shadow'> Shop Now </button></Link>
               <div className="d-flex justify-content-between align-items-center mt-5">
                 <div className = "stats border-end pe-4">
                   <h2 className='fw-bold'> 200+ </h2>
