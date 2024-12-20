@@ -71,3 +71,23 @@
 .passwordAndSecurity{
     display: none;
 }
+
+.profileSaveButton{
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    transition: 0.1s all ease-in-out;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.profileSaveButton{
+    width: 80px !important;
+    height: 32px !important;
+}
+
+.profileSaveButton:hover{
+    background-color: rgb(23, 39, 68);
+    color: white;
+}

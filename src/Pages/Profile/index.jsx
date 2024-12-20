@@ -73,25 +73,29 @@ export default function Profile() {
                         </div>
                       </div>
                     </div>
+                    <button type = "submit" className="profileSaveButton btn btn-light rounded-5 shadow mt-3 mb-2"> Save </button>
                   </form>
                 </div>
                 <div className="passwordAndSecurity ms-4">
-                  <p className='mb-4'>Change Password</p>
-                  <label htmlFor='current' className='form-label'>Current Password</label>
-                  <div className="position-relative">
-                    <input id = "current" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "password" placeholder='Enter your current password'/>
-                    <i className="profileInputIcon fa-solid fa-lock fa-2xs"></i>
-                  </div>
-                  <label htmlFor='new' className='form-label'>New Password</label>
-                  <div className="position-relative">
-                    <input id = "new" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "password" placeholder='Enter your new password'/>
-                    <i className="profileInputIcon fa-solid fa-lock fa-2xs"></i>
-                  </div>
-                  <label htmlFor='confirmNew' className='form-label'>Confirm Password</label>
-                  <div className="position-relative">
-                    <input id = "confirmNew" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "password" placeholder='Confirm your new password'/>
-                    <i className="profileInputIcon fa-solid fa-lock fa-2xs"></i>
-                  </div>
+                  <form>
+                    <p className='mb-4'>Change Password</p>
+                    <label htmlFor='current' className='form-label'>Current Password</label>
+                    <div className="position-relative">
+                      <input id = "current" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "password" placeholder='Enter your current password'/>
+                      <i className="profileInputIcon fa-solid fa-lock fa-2xs"></i>
+                    </div>
+                    <label htmlFor='new' className='form-label'>New Password</label>
+                    <div className="position-relative">
+                      <input id = "new" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "password" placeholder='Enter your new password'/>
+                      <i className="profileInputIcon fa-solid fa-lock fa-2xs"></i>
+                    </div>
+                    <label htmlFor='confirmNew' className='form-label'>Confirm Password</label>
+                    <div className="position-relative">
+                      <input id = "confirmNew" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "password" placeholder='Confirm your new password'/>
+                      <i className="profileInputIcon fa-solid fa-lock fa-2xs"></i>
+                    </div>
+                    <button type = "submit" className="profileSaveButton btn btn-light rounded-5 shadow mt-3 mb-2"> Save </button>
+                  </form>
                 </div>
             </div>
           </div>
