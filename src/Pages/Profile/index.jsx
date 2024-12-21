@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.css"
+import axios from 'axios';
 
 export default function Profile() {
   return (

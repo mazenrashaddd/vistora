@@ -27,24 +27,26 @@ export default function Register() {
     const schema = Joi.object({
         first_name: Joi.string()
             .alphanum()
-            .min(3)
+            .min(2)
             .max(30)
             .required(),
 
         last_name: Joi.string()
             .alphanum()
-            .min(3)
+            .min(2)
             .max(30)
             .required(),
 
         phone: Joi.string()
-            .pattern(new RegExp('^[010|011|012][0-9]{9}')),
+            .pattern(new RegExp('^[010|011|012][0-9]{8}')),
 
         email: Joi.string()
-            .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+            .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+            .required(),
 
         password: Joi.string()
-            .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+            .pattern(new RegExp('^[a-zA-Z0-9]{8,30}$'))
+            .required(),
     })
 
     let data = {...registrationData};
@@ -68,14 +70,12 @@ export default function Register() {
       setValidationErrorState(true);
     }
     else{
-      console.log(registrationData)
       axios.post("https://muhammadnruno.pythonanywhere.com/api/authentication/registration/", registrationData)
       .then((res) => {
         navigate("/login");
         setValidationErrorState(false);
       }).catch((err) => {
-        console.log(err)
-        // setErrorMessage(err.response.data);
+        setErrorMessage(err.response.data);
         setValidationErrorState(false);
       });
     }
