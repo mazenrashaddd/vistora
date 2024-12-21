@@ -53,15 +53,15 @@ export default function Profile() {
                     <div className="row">
                       <div className="col-6">
                         <p className='mb-4'>Personal</p>
-                        <label htmlFor='name' className='form-label'>Name</label>
+                        <label htmlFor='firstName' className='form-label'>First Name</label>
                         <div className="position-relative">
-                          <input id = "name" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "text" placeholder='Enter your name'/>
+                          <input id = "firstName" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "text" placeholder='Enter your first name'/>
                           <i className="profileInputIcon fa-solid fa-user fa-2xs"></i>
                         </div>
-                        <label htmlFor='date' className='form-label'>Date of birth</label>
+                        <label htmlFor='lastName' className='form-label'>Last Name</label>
                         <div className="position-relative">
-                          <input id = "date" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "date"/>
-                          <i className="profileInputIcon fa-solid fa-calendar-days fa-2xs"></i>
+                          <input id = "lastName" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "text" placeholder='Enter your last name'/>
+                          <i className="profileInputIcon fa-solid fa-user fa-2xs"></i>
                         </div>
                       </div>
                       <div className="col-6">
@@ -70,6 +70,11 @@ export default function Profile() {
                         <div className="position-relative">
                           <input id = "email" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "email" placeholder='Enter your email address'/>
                           <i className="profileInputIcon fa-solid fa-envelope fa-2xs"></i>
+                        </div>
+                        <label htmlFor='phone' className='form-label'>Phone Number</label>
+                        <div className="position-relative">
+                          <input id = "phone" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "tel" placeholder='Enter your phone number'/>
+                          <i className="profileInputIcon fa-solid fa-phone fa-2xs"></i>
                         </div>
                       </div>
                     </div>

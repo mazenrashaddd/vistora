@@ -23,7 +23,7 @@
     height: 35px;
     background-color: rgba(100, 100, 100, 0.1);
     border: 1px solid black;
-    color: white;
+    color: black;
 }
 
 .inputBox::placeholder{

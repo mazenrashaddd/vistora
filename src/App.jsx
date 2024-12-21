@@ -17,6 +17,13 @@ import Register from "./Components/Authentication/Register"
 export default function App() {
   const [cartCounter, setCartCounter] = useState(1);
 
+  function ProtectedRoute(props){
+    if (localStorage.getItem("token") === null)
+      return <Login/>;
+    else
+      return props.children;
+  }
+
   return (
     <>
         <SignupDiscount/>
@@ -24,8 +31,8 @@ export default function App() {
         <Routes>
           <Route path = "" element = {<Home/>}/>
           <Route path = "/home" element = {<Home/>}/>
-          <Route path = "/cart" element = {<Cart cartCounter = {cartCounter}/>}/>
-          <Route path = "/profile" element = {<Profile/>}/>
+          <Route path = "/cart" element = {<ProtectedRoute> <Cart cartCounter = {cartCounter}/> </ProtectedRoute>}/>
+          <Route path = "/profile" element = {<ProtectedRoute> <Profile/> </ProtectedRoute>}/>
           <Route path = "/shop" element = {<Shop/>}/>
           <Route path = "/login" element = {<Login/>}/>
           <Route path = "/register" element = {<Register/>}/>
