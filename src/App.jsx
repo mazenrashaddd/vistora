@@ -14,6 +14,7 @@ import Contact from './Components/Contact'
 import Login from "./Components/Authentication/Login"
 import Register from "./Components/Authentication/Register"
 import axios from 'axios'
+import ProductDetails from "./Pages/ProductDetails/index";
 
 
 export default function App() {
@@ -87,7 +88,7 @@ export default function App() {
           <Route path = "/cart" element = {<ProtectedRoute> <Cart cartContent = {cartContent}/> </ProtectedRoute>}/>
           <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData}/> </ProtectedRoute>}/>
           <Route path = "/shop" element = {<Shop/>}/>
-
+          <Route path = "/product" element = {<ProductDetails/>}/>
           <Route path = "/login" element = {<Login getUserData={getUserData}/>}/>
           <Route path = "/register" element = {<Register/>}/>
           <Route path = "*" element = {<NotFound/>}/>
