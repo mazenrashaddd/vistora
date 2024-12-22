@@ -4,7 +4,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css"
 import "./style.css"
 import { Link } from 'react-router-dom'
 
-export default function Navbar({cartCounter}) {
+export default function Navbar({cartContent, logOut}) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0 z-3">
       <div className="container">
@@ -76,7 +76,7 @@ export default function Navbar({cartCounter}) {
             <div className='mx-4'>
               <Link to = "/cart">
                 <div className='pb-3'>
-                  <div className='cartCounter text-center bg-black rounded-circle text-white'>{cartCounter}</div>
+                  <div className='cartCounter text-center bg-black rounded-circle text-white'>{cartContent.length}</div>
                   <i className="fa-solid fa-cart-shopping fa-sm"></i>
                 </div>
               </Link>
@@ -86,6 +86,14 @@ export default function Navbar({cartCounter}) {
                 <i className="fa-regular fa-user fa-sm"></i>
               </Link>
             </div>
+            {localStorage.getItem("id") != null ?
+              <div className='logout mx-4 d-flex justify-content-center align-items-center' role = "button" onClick={logOut}>
+                Logout
+                <i className="fa-solid fa-right-from-bracket fa-xs text-danger ms-2"></i>
+              </div>
+              :
+              <></>
+            }
           </div>
         </div>
       </div>

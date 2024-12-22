@@ -4,10 +4,10 @@ import Items from './Components/Items'
 import Summary from './Components/Summary'
 import EmptyCart from './Components/EmptyCart'
 
-export default function Cart({cartCounter}) {
+export default function Cart({cartContent}) {
   return (
     <div className='container my-5'>
-      {(cartCounter === 0 ?
+      {(cartContent.length === 0 ?
         <EmptyCart/>
         :
         <div className="row g-3">
