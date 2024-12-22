@@ -24,6 +24,7 @@ export default function Login({getUserData}) {
     axios.post("https://muhammadnruno.pythonanywhere.com/api/authentication/login/", loginData)
     .then((res) => {
       localStorage.setItem("id", res.data.user.pk);
+      localStorage.setItem("accessToken", res.data.access_token);
       getUserData();
       navigate("/home");
     }).catch((err) => {

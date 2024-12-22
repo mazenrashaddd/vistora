@@ -17,7 +17,7 @@ import {jwtDecode} from 'jwt-decode';
 import axios from 'axios'
 
 export default function App() {
-  const [cartCounter, setCartCounter] = useState(1);
+  const [cartCounter, setCartCounter] = useState(0);
   const [userData, setUserData] = useState(null);
   let navigate = useNavigate();
 
@@ -29,7 +29,11 @@ export default function App() {
       phone: ""
     }
 
-    axios.get(`https://muhammadnruno.pythonanywhere.com/api/users/${localStorage.getItem("id")}`)
+    axios.get(`https://muhammadnruno.pythonanywhere.com/api/users/${localStorage.getItem("id")}`, {
+      headers: {
+        'Authorization': `JWT ${localStorage.getItem("accessToken")}`
+      }
+    })
     .then((res) => {
       console.log(res)
     })
@@ -38,6 +42,7 @@ export default function App() {
   function logOut(){
     setUserData(null);
     localStorage.clear();
+    navigate("/home")
   }
 
   function ProtectedRoute(props){
@@ -55,7 +60,11 @@ export default function App() {
 
   return (
     <>
-        <SignupDiscount/>
+        {localStorage.getItem("id") == null ?
+          <SignupDiscount/>
+          :
+          <></>
+        }
         <Navbar cartCounter = {cartCounter} logOut = {logOut}/>
         <Routes>
           <Route path = "" element = {<Home/>}/>
