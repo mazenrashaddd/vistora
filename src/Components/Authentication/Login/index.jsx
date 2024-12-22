@@ -9,7 +9,7 @@ export default function Login({getUserData}) {
     password: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState([]);
   let navigate = useNavigate();
 
   function getLoginData(e){
@@ -23,17 +23,25 @@ export default function Login({getUserData}) {
     
     axios.post("https://muhammadnruno.pythonanywhere.com/api/authentication/login/", loginData)
     .then((res) => {
-      localStorage.setItem("tokenValue", res.data.access_token);
+      localStorage.setItem("id", res.data.user.pk);
       getUserData();
       navigate("/home");
     }).catch((err) => {
-      setErrorMessage(err.response.data);
+      if (err.response.data.non_field_errors)
+        setErrorMessage(err.response.data.non_field_errors);
+      else if (err.response.data.email)
+        setErrorMessage(err.response.data.email);
+      else
+        setErrorMessage(err.response.data.password);
     });
   }
 
   return (
-    <div className='formContainer container pt-4 pb-1 my-5 rounded-3 bg-white'>
+    <div className='login formContainer container pt-4 pb-1 my-5 rounded-3 bg-white'>
         <h1 className='heading authenticationHeader text-center'>LOGIN</h1>
+        {errorMessage.length ? errorMessage.map((err) => {
+          return(<h6 className="alert alert-danger mt-3"> {err} </h6>)})
+        : <></>}
         <form className='my-4' onSubmit={handlerSubmit}>
           <div className="position-relative d-flex justify-content-center">
             <input id = "email" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "email" name = "email" placeholder='Enter your email address' onChange={getLoginData}/>

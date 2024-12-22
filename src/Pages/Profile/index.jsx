@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./style.css"
 import axios from 'axios';
 
-export default function Profile() {
+export default function Profile({userData}) {
   return (
     <div className='profile container my-5'>
       <div className="bg-light p-3 rounded-4">
