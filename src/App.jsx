@@ -15,6 +15,7 @@ import Login from "./Components/Authentication/Login"
 import Register from "./Components/Authentication/Register"
 import axios from 'axios'
 
+
 export default function App() {
   const [cartContent, setCartContent] = useState([]);
   const [userData, setUserData] = useState(null);
@@ -86,6 +87,7 @@ export default function App() {
           <Route path = "/cart" element = {<ProtectedRoute> <Cart cartContent = {cartContent}/> </ProtectedRoute>}/>
           <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData}/> </ProtectedRoute>}/>
           <Route path = "/shop" element = {<Shop/>}/>
+
           <Route path = "/login" element = {<Login getUserData={getUserData}/>}/>
           <Route path = "/register" element = {<Register/>}/>
           <Route path = "*" element = {<NotFound/>}/>
