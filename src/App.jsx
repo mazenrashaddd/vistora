@@ -16,16 +16,14 @@ import Register from "./Components/Authentication/Register";
 import ProductDetails from "./Pages/ProductDetails/index";
 
 export default function App() {
-  const [cartCounter, setCartCounter] = useState(1);
-
   return (
     <>
-      <SignupDiscount />
-      <Navbar cartCounter={cartCounter} />
+      <SignupDiscount/>
+      <Navbar/>
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/cart" element={<Cart cartCounter={cartCounter} />} />
+        <Route path="/cart" element={<Cart/>} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/product" element={<ProductDetails />} />
