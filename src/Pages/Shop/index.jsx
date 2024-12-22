@@ -1,129 +1,234 @@
 import React, { useState } from "react";
-import "./style.css";
 
 export default function Shop() {
-  const [itemCounter, setItemCounter] = useState(1);
+  const [minPrice, setMinPrice] = useState(50); // القيمة الافتراضية للحد الأدنى
+  const [maxPrice, setMaxPrice] = useState(60); // القيمة الافتراضية للحد الأقصى
+
+  const handleMinChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (value < maxPrice) setMinPrice(value);
+  };
+
+  const handleMaxChange = (e) => {
+    const value = parseInt(e.target.value);
+    if (value > minPrice) setMaxPrice(value);
+  };
 
   return (
     <>
-      <div className="container bg-white">
-        <div className="row">
-          <div className="col-md-2">
-            <div className="row">
-              <div className="col-12 w-100  mt-2">
-                <img
-                  className="w-100 rounded-4 "
-                  src="https://next-ecommerce-shopco.vercel.app/_next/image?url=%2Fimages%2Fpic10.png&w=256&q=75"
-                  alt=""
-                />
-              </div>
-              <div className="col-12 w-100 mt-2">
-                <img
-                  className="w-100 rounded-4 "
-                  src="https://next-ecommerce-shopco.vercel.app/_next/image?url=%2Fimages%2Fpic10.png&w=256&q=75"
-                  alt=""
-                />
-              </div>
-              <div className="col-12 w-100 mt-2">
-                <img
-                  className="w-100 rounded-4 "
-                  src="https://next-ecommerce-shopco.vercel.app/_next/image?url=%2Fimages%2Fpic10.png&w=256&q=75"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-          <div className="col-md-5">
-            <img
-              className="w-100 rounded-4 mt-2"
-              src="https://next-ecommerce-shopco.vercel.app/_next/image?url=%2Fimages%2Fpic10.png&w=256&q=75"
-              alt=""
-            />
-          </div>
-          <div className="col-md-5">
-            <h4 className="p-shop mt-5 fw-bolder text-black">
-              One Life Graphic T-shirt
-            </h4>
-
-            <div className="starRate mb-2">
-              <i className="fa-solid me-2 fa-star fa-xs"></i>
-              <i className="fa-solid me-2 fa-star fa-xs"></i>
-              <i className="fa-solid me-2 fa-star fa-xs"></i>
-              <i className="fa-solid me-2 fa-star fa-xs"></i>
-              <i className="fa-solid fa-star-half fa-xs"></i>
-              <span className="ms-2">4.5/5</span>
-            </div>
-
-            <div>
-              <h5>$260</h5>
-            </div>
-            <p>
-              This graphic t-shirt which is perfect for any occasion. Crafted
-              from a soft and breathable fabric, it offers superior comfort and
-              style.
-            </p>
-            <hr />
-            <p className="fs-6">Select Colors</p>
-            <div className=" d-flex">
-              <div className="roundcircle me-2  bg-black"></div>
-              <div className="roundcircle me-2  bg-secondary"></div>
-              <div className="roundcircle me-2  bg-info"></div>
-            </div>
-            <hr />
-            <div className="">
-              <h5>Choose Size</h5>
-
-              <input
-                class="btn me-2 rounded-4 color_card"
-                type="button"
-                value="Small"
-              />
-              <input
-                class="btn me-2 rounded-4 color_card"
-                type="button"
-                value="Medium"
-              />
-              <input
-                class="btn me-2 rounded-4 color_card"
-                type="button"
-                value="Large
-                "
-              />
-              <input
-                class="btn me-2 rounded-4 color_card"
-                type="button"
-                value="X-Large
-                "
-              />
+      <div className="bg-white mt-0 pt-4">
+        <div className="container-fluid w-75 m-auto ">
+          <div className="row my-4">
+            <div className="col-4 p-3 border border-1 border-black rounded-4">
+              <h5 className="fs-5">Filters</h5>
               <hr />
-              <div className=" d-flex justify-content-between ">
-                <div className="updateItemContainer d-flex py-4 px-4 justify-content-between align-items-center rounded-5">
-                  <div
-                    role="button"
-                    onClick={() => setItemCounter(Math.max(1, itemCounter - 1))}
-                  >
-                    <i className="fa-solid fa-minus fa-sm mx-2"></i>
+              <div className="d-flex justify-content-between px-4">
+                <p>T-shirts</p>
+                <p>
+                  <i class="fa-solid fa-greater-than"></i>
+                </p>
+              </div>
+              <div className="d-flex justify-content-between px-4">
+                <p>Shorts</p>
+                <p>
+                  <i class="fa-solid fa-greater-than"></i>
+                </p>
+              </div>
+              <div className="d-flex justify-content-between px-4">
+                <p>Shirts</p>
+                <p>
+                  <i class="fa-solid fa-greater-than"></i>
+                </p>
+              </div>
+              <div className="d-flex justify-content-between px-4">
+                <p>Hoodie</p>
+                <p>
+                  <i class="fa-solid fa-greater-than"></i>
+                </p>
+              </div>
+              <div className="d-flex justify-content-between px-4">
+                <p>Jeans</p>
+                <p>
+                  <i class="fa-solid fa-greater-than"></i>
+                </p>
+              </div>
+              <hr />
+              <h4 className="fw-bolder">Price</h4>
+              <div className="container ">
+                <div className="d-flex flex-column align-items-center">
+                  <div className="w-100">
+                    <input
+                      type="range"
+                      className="form-range"
+                      min="0"
+                      max="100"
+                      value={minPrice}
+                      onChange={handleMinChange}
+                    />
                   </div>
-                  <div>{itemCounter}</div>
-                  <div
-                    role="button"
-                    onClick={() => setItemCounter(itemCounter + 1)}
-                  >
-                    <i className="fa-solid fa-plus fa-sm mx-2"></i>
+                  <div className="w-100">
+                    <input
+                      type="range"
+                      className="form-range"
+                      min="0"
+                      max="100"
+                      value={maxPrice}
+                      onChange={handleMaxChange}
+                    />
+                  </div>
+                  <div className="mt-3">
+                    <p>
+                      Selected Price Range: <strong>{minPrice}</strong> -{" "}
+                      <strong>{maxPrice}</strong>
+                    </p>
                   </div>
                 </div>
-                <input
-                  className="btn me-4 rounded-4 bg-black text-white rounded-5 px-5"
-                  type="button"
-                  value="Add to Cart"
-                />
+              </div>
+              <hr />
+              <h4 className="fw-bolder">Color</h4>
+              <div className="">
+                <button type="button" class="btn m-2 rounded-5 btn-primary">
+                  Blue
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  Gray
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-success">
+                  Green
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-danger">
+                  Red
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-warning">
+                  Yellow
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-info">
+                  Cyan
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-light">
+                  White
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-dark">
+                  Black
+                </button>
+              </div>
+              <hr />
+              <h4 className="fw-bolder">Size</h4>
+              <div className=" ">
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  XX-Small
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  X-Small
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  Small
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  Medium
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  Large
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  X-Large
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  XX-Large
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  3X-Large
+                </button>
+                <button type="button" class="btn m-2 rounded-5 btn-secondary">
+                  4X-Large
+                </button>
+              </div>
+              <div className="">
+                <h5 className="fs-5">Filters</h5>
+                <hr />
+                <div className="d-flex justify-content-between px-4">
+                  <p>Casual</p>
+                  <p>
+                    <i class="fa-solid fa-greater-than"></i>
+                  </p>
+                </div>
+                <div className="d-flex justify-content-between px-4">
+                  <p>Formal</p>
+                  <p>
+                    <i class="fa-solid fa-greater-than"></i>
+                  </p>
+                </div>
+                <div className="d-flex justify-content-between px-4">
+                  <p>Party</p>
+                  <p>
+                    <i class="fa-solid fa-greater-than"></i>
+                  </p>
+                </div>
+                <div className="d-flex justify-content-between px-4">
+                  <p>Gym</p>
+                  <p>
+                    <i class="fa-solid fa-greater-than"></i>
+                  </p>
+                </div>
+              </div>
+              <div className="d-flex justify-content-center">
+                <button type="button" class="btn btn-dark rounded-5 px-5">
+                  Apply Filter
+                </button>
+              </div>
+            </div>
+            <div className="col-8">
+              <div className="d-flex justify-content-between">
+                <h4>Casual</h4>
+                <div className="d-flex ">
+                  <p className="m-2">Showing 1-10 of 100 Products Sort by:</p>
+                  <span>
+                    <select
+                      class="form-select "
+                      aria-label="Default select example"
+                    >
+                      <option selected>Most Popular</option>
+                      <option value="1">Low Price</option>
+                      <option value="2">High Price</option>
+                    </select>
+                  </span>
+                </div>
+              </div>
+              <div className="d-flex justify-content-center">
+                <nav aria-label="Page navigation example ">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        Previous
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        1
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        2
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        3
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        Next
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className=""></div>
-      <div className=""></div>
     </>
   );
 }
