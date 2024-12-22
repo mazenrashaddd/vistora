@@ -14,7 +14,7 @@ export default function Profile({userData}) {
             </div>
           </div>
           <div>
-            <p className='m-0 ms-3 pt-4'>Mohamed Tarek</p>
+            <p className='m-0 ms-3 pt-4'>{userData.first_name + ' ' + userData.last_name}</p>
             <h4 className='ms-3'>Your account is ready and going</h4>
           </div>
         </div>
@@ -25,9 +25,13 @@ export default function Profile({userData}) {
                   <li className='mb-2 p-2 rounded-2' role = "button" onClick={() => {
                     let selected = document.querySelector(".editProfile");
                     let unselected = document.querySelector(".passwordAndSecurity");
+                    let unselectedTwo = document.querySelector(".inventory")
+                    let unselectedThree = document.querySelector(".orders")
                     
                     selected.style.display = 'block';
                     unselected.style.display = 'none';
+                    unselectedTwo.style.display = 'none';
+                    unselectedThree.style.display = 'none';
                   }}>
                     <div>
                       Edit Profile
@@ -36,14 +40,56 @@ export default function Profile({userData}) {
                   <li className='mb-2 p-2 rounded-2' role = "button" onClick={() => {
                     let selected = document.querySelector(".passwordAndSecurity");
                     let unselected = document.querySelector(".editProfile");
+                    let unselectedTwo = document.querySelector(".inventory")
+                    let unselectedThree = document.querySelector(".orders")
                     
                     selected.style.display = 'block';
                     unselected.style.display = 'none';
+                    unselectedTwo.style.display = 'none';
+                    unselectedThree.style.display = 'none';
                   }}>
                     <div>
                       Password & Security
                     </div>
                   </li>
+                  {localStorage.getItem("role") == "Staff" ?
+                    <li className='mb-2 p-2 rounded-2' role = "button" onClick={() => {
+                      let selected = document.querySelector(".inventory");
+                      let unselected = document.querySelector(".editProfile");
+                      let unselectedTwo = document.querySelector(".passwordAndSecurity")
+                      let unselectedThree = document.querySelector(".orders")
+                      
+                      selected.style.display = 'block';
+                      unselected.style.display = 'none';
+                      unselectedTwo.style.display = 'none';
+                      unselectedThree.style.display = 'none';
+                    }}>
+                      <div>
+                        Inventory
+                      </div>
+                    </li>
+                    :
+                    <></>
+                  }
+                  {localStorage.getItem("role") == "Customer" ?
+                    <li className='mb-2 p-2 rounded-2' role = "button" onClick={() => {
+                      let selected = document.querySelector(".orders");
+                      let unselected = document.querySelector(".editProfile");
+                      let unselectedTwo = document.querySelector(".inventory")
+                      let unselectedThree = document.querySelector(".passwordAndSecurity")
+                      
+                      selected.style.display = 'block';
+                      unselected.style.display = 'none';
+                      unselectedTwo.style.display = 'none';
+                      unselectedThree.style.display = 'none';
+                    }}>
+                      <div>
+                        Orders
+                      </div>
+                    </li>
+                    :
+                    <></>
+                  }
               </ul>
             </div>
           </div>
@@ -56,12 +102,12 @@ export default function Profile({userData}) {
                         <p className='mb-4'>Personal</p>
                         <label htmlFor='firstName' className='form-label'>First Name</label>
                         <div className="position-relative">
-                          <input id = "firstName" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "text" placeholder='Enter your first name'/>
+                          <input id = "firstName" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "text" value = {userData.first_name} placeholder='Enter your first name'/>
                           <i className="profileInputIcon fa-solid fa-user fa-2xs"></i>
                         </div>
                         <label htmlFor='lastName' className='form-label'>Last Name</label>
                         <div className="position-relative">
-                          <input id = "lastName" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "text" placeholder='Enter your last name'/>
+                          <input id = "lastName" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "text" value = {userData.last_name} placeholder='Enter your last name'/>
                           <i className="profileInputIcon fa-solid fa-user fa-2xs"></i>
                         </div>
                       </div>
@@ -69,12 +115,12 @@ export default function Profile({userData}) {
                       <p className='mb-4'>Contact</p>
                         <label htmlFor='email' className='form-label'>Email</label>
                         <div className="position-relative">
-                          <input id = "email" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "email" placeholder='Enter your email address'/>
+                          <input id = "email" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "email" value = {userData.email} placeholder='Enter your email address'/>
                           <i className="profileInputIcon fa-solid fa-envelope fa-2xs"></i>
                         </div>
                         <label htmlFor='phone' className='form-label'>Phone Number</label>
                         <div className="position-relative">
-                          <input id = "phone" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "tel" placeholder='Enter your phone number'/>
+                          <input id = "phone" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "tel" value = {userData.phone} placeholder='Enter your phone number'/>
                           <i className="profileInputIcon fa-solid fa-phone fa-2xs"></i>
                         </div>
                       </div>
@@ -102,6 +148,12 @@ export default function Profile({userData}) {
                     </div>
                     <button type = "submit" className="profileSaveButton btn btn-light rounded-5 shadow mt-3 mb-2"> Save </button>
                   </form>
+                </div>
+                <div className="inventory ms-4">
+                  <p className='mb-4'>Inventory</p>
+                </div>
+                <div className="orders ms-4">
+                  <p className='mb-4'>Orders</p>
                 </div>
             </div>
           </div>

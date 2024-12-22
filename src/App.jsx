@@ -13,11 +13,10 @@ import Shop from './Pages/Shop'
 import Contact from './Components/Contact'
 import Login from "./Components/Authentication/Login"
 import Register from "./Components/Authentication/Register"
-import {jwtDecode} from 'jwt-decode';
 import axios from 'axios'
 
 export default function App() {
-  const [cartCounter, setCartCounter] = useState(0);
+  const [cartContent, setCartContent] = useState([]);
   const [userData, setUserData] = useState(null);
   let navigate = useNavigate();
 
@@ -35,8 +34,23 @@ export default function App() {
       }
     })
     .then((res) => {
-      console.log(res)
+      data["first_name"] = res.data.first_name;
+      data["last_name"] = res.data.last_name;
+      data["email"] = res.data.email;
+      data["phone"] = res.data.phone;
+      localStorage.setItem("role", res.data.role)
     })
+
+    axios.get(`https://muhammadnruno.pythonanywhere.com/api/cart/${localStorage.getItem("id")}`, {
+      headers: {
+        'Authorization': `JWT ${localStorage.getItem("accessToken")}`
+      }
+    })
+    .then((res) => {
+      setCartContent(res.data.items);
+    })
+
+    setUserData(data);
   }
 
   function logOut(){
@@ -65,11 +79,11 @@ export default function App() {
           :
           <></>
         }
-        <Navbar cartCounter = {cartCounter} logOut = {logOut}/>
+        <Navbar cartContent = {cartContent} logOut = {logOut}/>
         <Routes>
           <Route path = "" element = {<Home/>}/>
           <Route path = "/home" element = {<Home/>}/>
-          <Route path = "/cart" element = {<ProtectedRoute> <Cart cartCounter = {cartCounter}/> </ProtectedRoute>}/>
+          <Route path = "/cart" element = {<ProtectedRoute> <Cart cartContent = {cartContent}/> </ProtectedRoute>}/>
           <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData}/> </ProtectedRoute>}/>
           <Route path = "/shop" element = {<Shop/>}/>
           <Route path = "/login" element = {<Login getUserData={getUserData}/>}/>
