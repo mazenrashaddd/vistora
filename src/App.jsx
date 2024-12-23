@@ -50,20 +50,15 @@ export default function App() {
         localStorage.setItem("role", res.data.role);
       });
 
-    axios
-      .get(
-        `https://muhammadnruno.pythonanywhere.com/api/cart/${localStorage.getItem(
-          "id"
-        )}`,
-        {
+      axios.get(`https://muhammadnruno.pythonanywhere.com/api/cart/${localStorage.getItem("id")}`, {
           headers: {
             Authorization: `JWT ${localStorage.getItem("accessToken")}`,
           },
         }
       )
       .then((res) => {
-        setCartContent(res.data.items);
-      });
+        setCartContent(res.data);
+      })
 
     setUserData(data);
   }
@@ -90,11 +85,11 @@ export default function App() {
         <Routes>
           <Route path = "" element = {<Home/>}/>
           <Route path = "/home" element = {<Home/>}/>
-          <Route path = "/cart" element = {<ProtectedRoute> <Cart cartContent = {cartContent}/> </ProtectedRoute>}/>
+          <Route path = "/cart" element = {<ProtectedRoute> <Cart cartContent = {cartContent} setCartContent = {setCartContent}/> </ProtectedRoute>}/>
           <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData} setUserData={setUserData}/> </ProtectedRoute>}/>
           <Route path = "/shop" element = {<Shop/>}/>
-          <Route path = "/product" element = {<ProductDetails/>}/>
-          <Route path = "/product/:id" element = {<ProductDetails/>}/>
+          <Route path = "/product" element = {<ProductDetails cartContent = {cartContent}/>}/>
+          <Route path = "/product/:id" element = {<ProductDetails cartContent = {cartContent}/>}/>
           <Route path = "/login" element = {<Login getUserData={getUserData}/>}/>
           <Route path = "/register" element = {<Register/>}/>
           <Route path = "*" element = {<NotFound/>}/>

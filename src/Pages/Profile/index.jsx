@@ -38,8 +38,6 @@ export default function Profile({userData, setUserData}) {
   function handlerSubmitUser(e){
     e.preventDefault()
 
-    console.log(changedUserData)
-
     axios.put(`https://muhammadnruno.pythonanywhere.com/api/users/${localStorage.getItem("id")}`, changedUserData, {
       headers: {
         'Authorization': `JWT ${localStorage.getItem("accessToken")}`
