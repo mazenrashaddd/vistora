@@ -245,11 +245,11 @@ export default function Profile({userData, setUserData}) {
                     </div>
                   </div>
                   
-                  <div className="showProducts row g-2 mt-2">
+                    <div className="showProducts row g-2 mt-2">
                       {products.map((item, i) => {
                         return (
-                          <div key = {i} className="col-4">
-                              <Link>
+                            <div key = {i} className="col-4">
+                              <Link to = {`/product/${item.id}`}>
                                 <div className="card border-0 rounded-3">
                                     <img src={item.image ? item.image : require('../../Images/image-placeholder.png')} className="card-img-top" alt="..."/>
                                     <div className="card-body bg-transparent">
@@ -258,10 +258,10 @@ export default function Profile({userData, setUserData}) {
                                     </div>
                                 </div>
                               </Link>
-                          </div>
+                            </div>
                         )
                       })}
-                  </div>
+                    </div>
                   <div className="addProductForm ms-4">
                     <form onSubmit={handlerSubmitProducts}>
                       <p className='mb-4'>Add Product</p>
