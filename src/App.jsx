@@ -15,10 +15,6 @@ import Login from "./Components/Authentication/Login"
 import Register from "./Components/Authentication/Register"
 import axios from 'axios'
 import ProductDetails from "./Pages/ProductDetails/index";
-<<<<<<< HEAD
-=======
-
->>>>>>> b5121358a5bb99865d15923f505f717f5c372059
 
 export default function App() {
   const [cartContent, setCartContent] = useState([]);
