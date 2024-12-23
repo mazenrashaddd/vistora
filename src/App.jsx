@@ -68,12 +68,6 @@ export default function App() {
       return props.children;
   }
 
-  useEffect(() => {
-    return(
-      logOut()
-    )
-  }, [])
-
   return (
     <>
         {localStorage.getItem("id") == null ?
@@ -86,7 +80,7 @@ export default function App() {
           <Route path = "" element = {<Home/>}/>
           <Route path = "/home" element = {<Home/>}/>
           <Route path = "/cart" element = {<ProtectedRoute> <Cart cartContent = {cartContent}/> </ProtectedRoute>}/>
-          <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData}/> </ProtectedRoute>}/>
+          <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData} setUserData={setUserData}/> </ProtectedRoute>}/>
           <Route path = "/shop" element = {<Shop/>}/>
           <Route path = "/product" element = {<ProductDetails/>}/>
           <Route path = "/login" element = {<Login getUserData={getUserData}/>}/>

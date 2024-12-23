@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 export default function Shop() {
-  const [minPrice, setMinPrice] = useState(50); // القيمة الافتراضية للحد الأدنى
-  const [maxPrice, setMaxPrice] = useState(60); // القيمة الافتراضية للحد الأقصى
+  const [minPrice, setMinPrice] = useState(50);
+  const [maxPrice, setMaxPrice] = useState(60);
 
   const handleMinChange = (e) => {
     const value = parseInt(e.target.value);
@@ -18,7 +18,7 @@ export default function Shop() {
     <>
       <div className="bg-white mt-0 pt-4">
         <div className="container-fluid w-75 m-auto ">
-          <div className="row my-4">
+          <div className="row gx-5 my-4">
             <div className="col-4 p-3 border border-1 border-black rounded-4">
               <h5 className="fs-5">Filters</h5>
               <hr />
@@ -198,27 +198,27 @@ export default function Shop() {
                 <nav aria-label="Page navigation example ">
                   <ul class="pagination">
                     <li class="page-item">
-                      <a class="page-link" href="#">
+                      <a class="page-link text-black" href="#">
                         Previous
                       </a>
                     </li>
                     <li class="page-item">
-                      <a class="page-link" href="#">
+                      <a class="page-link text-black" href="#">
                         1
                       </a>
                     </li>
                     <li class="page-item">
-                      <a class="page-link" href="#">
+                      <a class="page-link text-black" href="#">
                         2
                       </a>
                     </li>
                     <li class="page-item">
-                      <a class="page-link" href="#">
+                      <a class="page-link text-black" href="#">
                         3
                       </a>
                     </li>
                     <li class="page-item">
-                      <a class="page-link" href="#">
+                      <a class="page-link text-black" href="#">
                         Next
                       </a>
                     </li>
