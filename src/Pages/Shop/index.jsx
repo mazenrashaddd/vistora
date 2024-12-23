@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 
 export default function Shop() {
+
   const [products, setProducts] = useState([])
   const [minPrice, setMinPrice] = useState(50);
   const [maxPrice, setMaxPrice] = useState(60);
@@ -29,7 +30,7 @@ export default function Shop() {
 
   return (
     <>
-      <div className="bg-white mt-0 pt-4">
+      <div className="bg-white mt-0 py-4">
         <div className="container-fluid w-75 m-auto ">
           <div className="row gx-5 my-4">
             <div className="col-4 p-3 border border-1 border-black rounded-4">
