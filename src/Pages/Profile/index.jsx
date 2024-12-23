@@ -276,7 +276,7 @@ export default function Profile({userData, setUserData}) {
                       </div>
                       <label htmlFor='price' className='form-label'>Price</label>
                       <div className="position-relative">
-                        <input id = "price" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "number" name = "price" placeholder='Enter product price' onChange={getProductData}/>
+                        <input id = "price" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "number" name = "price" placeholder='Enter product price' onChange={getProductData} min = {0}/>
                         <i className="profileInputIcon fa-solid fa-user fa-2xs"></i>
                       </div>
                       <label htmlFor='image' className='form-label'>Product Image</label>
