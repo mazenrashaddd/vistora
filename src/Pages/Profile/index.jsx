@@ -40,7 +40,7 @@ export default function Profile({userData, setUserData}) {
 
     console.log(changedUserData)
 
-    axios.post(`https://muhammadnruno.pythonanywhere.com/api/users/${localStorage.getItem("id")}`, changedUserData, {
+    axios.put(`https://muhammadnruno.pythonanywhere.com/api/users/${localStorage.getItem("id")}`, changedUserData, {
       headers: {
         'Authorization': `JWT ${localStorage.getItem("accessToken")}`
       }
@@ -202,7 +202,7 @@ export default function Profile({userData, setUserData}) {
                         </div>
                         <label htmlFor='phone' className='form-label'>Phone Number</label>
                         <div className="position-relative">
-                          <input id = "phone" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "tel" value = {userData.phone} name = "phone" placeholder='Enter your phone number' onChange={getUpdatedUserData}/>
+                          <input id = "phone" className='inputBox shadow form-control mb-3 rounded-5 ps-4' type = "text" value = {userData.phone} name = "phone" placeholder='Enter your phone number' onChange={getUpdatedUserData}/>
                           <i className="profileInputIcon fa-solid fa-phone fa-2xs"></i>
                         </div>
                       </div>

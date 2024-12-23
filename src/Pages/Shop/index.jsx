@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios'
 
 export default function Shop() {
+  const [products, setProducts] = useState([])
   const [minPrice, setMinPrice] = useState(50);
   const [maxPrice, setMaxPrice] = useState(60);
 
@@ -13,6 +15,17 @@ export default function Shop() {
     const value = parseInt(e.target.value);
     if (value > minPrice) setMaxPrice(value);
   };
+
+  useEffect(() => {
+    axios.get(`https://muhammadnruno.pythonanywhere.com/api/products/`, {
+      headers: {
+        'Authorization': `JWT ${localStorage.getItem("accessToken")}`
+      }
+    })
+    .then((res) => {
+      setProducts(res.data.results)
+    })
+  }, [])
 
   return (
     <>
