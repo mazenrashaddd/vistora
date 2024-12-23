@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from 'axios'
 
-export default function Product() {
-  const [itemCounter, setItemCounter] = useState(1);
+export default function Product({productDetails}) {
+  const [itemCounter, setItemCounter] = useState(1)
 
   return (
     <div className="row">
@@ -10,21 +12,21 @@ export default function Product() {
           <div className="col-md-12 col-4  mt-2">
             <img
               className="w-100 rounded-4 "
-              src="https://next-ecommerce-shopco.vercel.app/_next/image?url=%2Fimages%2Fpic10.png&w=256&q=75"
+              src={productDetails.image ? productDetails.image : require("../../../Images/image-placeholder.png")}
               alt=""
             />
           </div>
           <div className="col-md-12 col-4  mt-2">
             <img
               className="w-100 rounded-4 "
-              src="https://next-ecommerce-shopco.vercel.app/_next/image?url=%2Fimages%2Fpic10.png&w=256&q=75"
+              src={productDetails.image ? productDetails.image : require("../../../Images/image-placeholder.png")}
               alt=""
             />
           </div>
           <div className="col-md-12 col-4 mt-2">
             <img
               className="w-100 rounded-4 "
-              src="https://next-ecommerce-shopco.vercel.app/_next/image?url=%2Fimages%2Fpic10.png&w=256&q=75"
+              src={productDetails.image ? productDetails.image : require("../../../Images/image-placeholder.png")}
               alt=""
             />
           </div>
@@ -33,13 +35,13 @@ export default function Product() {
       <div className="col-md-5">
         <img
           className="w-100 rounded-4 mt-2"
-          src="https://next-ecommerce-shopco.vercel.app/_next/image?url=%2Fimages%2Fpic10.png&w=256&q=75"
+          src={productDetails.image ? productDetails.image : require("../../../Images/image-placeholder.png")}
           alt=""
         />
       </div>
       <div className="col-md-5">
         <h4 className="p-shop mt-5 fw-bolder text-black">
-          One Life Graphic T-shirt
+          {productDetails.name}
         </h4>
 
         <div className="starRate mb-2">
@@ -52,18 +54,17 @@ export default function Product() {
         </div>
 
         <div>
-          <h5>$260</h5>
+          <h5>${productDetails.price}</h5>
         </div>
         <p>
-          This graphic t-shirt which is perfect for any occasion. Crafted from a
-          soft and breathable fabric, it offers superior comfort and style.
+          {productDetails.description}
         </p>
         <hr />
         <p className="fs-6">Select Colors</p>
         <div className=" d-flex">
-          <div className="roundcircle me-2  bg-black"></div>
-          <div className="roundcircle me-2  bg-secondary"></div>
-          <div className="roundcircle me-2  bg-info"></div>
+          <div className="roundcircle me-2  bg-black" role = "button"></div>
+          <div className="roundcircle me-2  bg-secondary" role = "button"></div>
+          <div className="roundcircle me-2  bg-info" role = "button"></div>
         </div>
         <hr />
         <div className="">

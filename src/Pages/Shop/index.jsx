@@ -213,7 +213,7 @@ export default function Shop() {
                 {products.map((item, i) => {
                   return (
                     <div className="col-lg-3 col-md-6">
-                      <Link>
+                      <Link to = {`/product/${item.id}`}>
                         <div key={i} className="card border-0 rounded-3">
                           <img
                             src={item.image}

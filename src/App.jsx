@@ -94,6 +94,7 @@ export default function App() {
           <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData} setUserData={setUserData}/> </ProtectedRoute>}/>
           <Route path = "/shop" element = {<Shop/>}/>
           <Route path = "/product" element = {<ProductDetails/>}/>
+          <Route path = "/product/:id" element = {<ProductDetails/>}/>
           <Route path = "/login" element = {<Login getUserData={getUserData}/>}/>
           <Route path = "/register" element = {<Register/>}/>
           <Route path = "*" element = {<NotFound/>}/>
