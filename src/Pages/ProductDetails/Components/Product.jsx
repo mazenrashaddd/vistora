@@ -2,8 +2,30 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from 'axios'
 
-export default function Product({productDetails}) {
+export default function Product({productDetails, cartContent}) {
   const [itemCounter, setItemCounter] = useState(1)
+  const [cartItem, setCartItem] = useState({
+    product: {
+      id: "",
+      name: "",
+      description: "",
+      price: "",
+      image: "",
+      stock_quantity: ""
+    },
+    quantity: "",
+    total_price: ""
+  })
+
+  function addItemToCart(){
+    let data = {...cartItem};
+    data.product = productDetails;
+    data.quantity = itemCounter;
+    data.total_price = itemCounter * productDetails.price;
+    setCartItem(data);
+    cartContent.items.push(data);
+    cartContent.total_cost += data.total_price;
+  }
 
   return (
     <div className="row">
@@ -113,6 +135,7 @@ export default function Product({productDetails}) {
               className="btn me-4 rounded-4 bg-black text-white rounded-5 px-5"
               type="button"
               value="Add to Cart"
+              onClick={addItemToCart}
             />
           </div>
         </div>

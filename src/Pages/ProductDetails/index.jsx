@@ -6,8 +6,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Modal from "./Components/Modal";
 
-export default function ProductDetails() {
-  const [itemCounter, setItemCounter] = useState(1);
+export default function ProductDetails({cartContent}) {
+  const [itemCounter, setItemCounter] = useState(1)
   const productID = useParams();
   const [productDetails, setProductDetails] = useState([]);
 
@@ -34,7 +34,8 @@ export default function ProductDetails() {
   return (
     <>
       <div className="container bg-white">
-        <Product productDetails={productDetails} />
+        <Product productDetails = {productDetails} cartContent={cartContent}/>
+
         <div className="ProductDetails m-3">
           <h3 className=" mt-3">Product Details</h3>
           <hr />
