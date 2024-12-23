@@ -3,28 +3,39 @@ import "./style.css";
 import Product from "../ProductDetails/Components/Product";
 import NewArrivals from "./../Home/Components/NewArrivals/index";
 import { useParams } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
+import Modal from "./Components/Modal";
 
 export default function ProductDetails({cartContent}) {
   const [itemCounter, setItemCounter] = useState(1)
   const productID = useParams();
-  const [productDetails, setProductDetails] = useState([])
+  const [productDetails, setProductDetails] = useState([]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
-    axios.get(`https://muhammadnruno.pythonanywhere.com/api/products/${productID.id}`, {
-      headers: {
-        'Authorization': `JWT ${localStorage.getItem("accessToken")}`
-      }
-    })
-    .then((res) => {
-      setProductDetails(res.data)
-    })
-  }, [])
+    axios
+      .get(
+        `https://muhammadnruno.pythonanywhere.com/api/products/${productID.id}`,
+        {
+          headers: {
+            Authorization: `JWT ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
+      .then((res) => {
+        setProductDetails(res.data);
+      });
+  }, []);
 
   return (
     <>
       <div className="container bg-white">
         <Product productDetails = {productDetails} cartContent={cartContent}/>
+
         <div className="ProductDetails m-3">
           <h3 className=" mt-3">Product Details</h3>
           <hr />
@@ -50,9 +61,18 @@ export default function ProductDetails({cartContent}) {
         </div>
         <div className="">
           <div className="row p-3 gy-4">
-            <h4 className="fw-bolder">
-              All Reviews <span className="fs-6"> (451)</span>
-            </h4>
+            <div className="d-flex justify-content-between">
+              <h4 className="fw-bolder">
+                All Reviews <span className="fs-6"> (451)</span>
+              </h4>
+              <div>
+                <button onClick={openModal}>Open Modal</button>
+                <Modal isOpen={isModalOpen} onClose={closeModal}>
+                  <h2>Modal Title</h2>
+                  <p>This is a reusable modal component in React!</p>
+                </Modal>
+              </div>
+            </div>
             <div className="col-md-6">
               <div className=" p-3 border border-1 border-black rounded-4">
                 <div className="starRate mb-2 ">
