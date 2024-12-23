@@ -17,6 +17,7 @@ import axios from "axios";
 import ProductDetails from "./Pages/ProductDetails/index";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
+
 export default function App() {
   const [cartContent, setCartContent] = useState([]);
   const [userData, setUserData] = useState(null);
@@ -78,42 +79,27 @@ export default function App() {
     else return props.children;
   }
 
-  useEffect(() => {
-    return logOut();
-  }, []);
-
   return (
     <>
-      {localStorage.getItem("id") == null ? <SignupDiscount /> : <></>}
-      <Navbar cartContent={cartContent} logOut={logOut} />
-      <Routes>
-        <Route path="" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route
-          path="/cart"
-          element={
-            <ProtectedRoute>
-              {" "}
-              <Cart cartContent={cartContent} />{" "}
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <Profile userData={userData} />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/product" element={<ProductDetails />} />
-        <Route path="/login" element={<Login getUserData={getUserData} />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Contact />
-      <Footer />
+        {localStorage.getItem("id") == null ?
+          <SignupDiscount/>
+          :
+          <></>
+        }
+        <Navbar cartContent = {cartContent} logOut = {logOut}/>
+        <Routes>
+          <Route path = "" element = {<Home/>}/>
+          <Route path = "/home" element = {<Home/>}/>
+          <Route path = "/cart" element = {<ProtectedRoute> <Cart cartContent = {cartContent}/> </ProtectedRoute>}/>
+          <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData} setUserData={setUserData}/> </ProtectedRoute>}/>
+          <Route path = "/shop" element = {<Shop/>}/>
+          <Route path = "/product" element = {<ProductDetails/>}/>
+          <Route path = "/login" element = {<Login getUserData={getUserData}/>}/>
+          <Route path = "/register" element = {<Register/>}/>
+          <Route path = "*" element = {<NotFound/>}/>
+        </Routes>
+        <Contact/>
+        <Footer/>
     </>
   );
 }
