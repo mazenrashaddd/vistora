@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Shop() {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
   const [minPrice, setMinPrice] = useState(50);
   const [maxPrice, setMaxPrice] = useState(60);
 
@@ -17,19 +18,20 @@ export default function Shop() {
   };
 
   useEffect(() => {
-    axios.get(`https://muhammadnruno.pythonanywhere.com/api/products/`, {
-      headers: {
-        'Authorization': `JWT ${localStorage.getItem("accessToken")}`
-      }
-    })
-    .then((res) => {
-      setProducts(res.data.results)
-    })
-  }, [])
+    axios
+      .get(`https://muhammadnruno.pythonanywhere.com/api/products/`, {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem("accessToken")}`,
+        },
+      })
+      .then((res) => {
+        setProducts(res.data.results);
+      });
+  }, []);
 
   return (
     <>
-      <div className="bg-white mt-0 pt-4">
+      <div className="bg-white mt-0 py-4">
         <div className="container-fluid w-75 m-auto ">
           <div className="row gx-5 my-4">
             <div className="col-4 p-3 border border-1 border-black rounded-4">
@@ -206,6 +208,39 @@ export default function Shop() {
                     </select>
                   </span>
                 </div>
+              </div>
+              <div className="row">
+                {products.map((item, i) => {
+                  return (
+                    <div className="col-lg-3 col-md-6">
+                      <Link>
+                        <div key={i} className="card border-0 rounded-3">
+                          <img
+                            src={item.image}
+                            className="card-img-top"
+                            alt="..."
+                          />
+                          <div className="card-body">
+                            <h5 className="card-title">{item.name}</h5>
+                            <div className="d-flex align-items-center">
+                              <div className="starRate">
+                                <i className="fa-solid fa-star fa-xs"></i>
+                                <i className="fa-solid fa-star fa-xs"></i>
+                                <i className="fa-solid fa-star fa-xs"></i>
+                                <i className="fa-solid fa-star fa-xs"></i>
+                                <i className="fa-solid fa-star-half-stroke fa-xs"></i>
+                              </div>
+                              <div className="numberRate">
+                                4.5 <span> /5 </span>
+                              </div>
+                            </div>
+                            <h5 className="mt-1">${item.price}</h5>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  );
+                })}
               </div>
               <div className="d-flex justify-content-center">
                 <nav aria-label="Page navigation example ">
