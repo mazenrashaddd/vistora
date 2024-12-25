@@ -17,18 +17,6 @@ export default function Shop() {
     if (value > minPrice) setMaxPrice(value);
   };
 
-  useEffect(() => {
-    axios
-      .get(`https://muhammadnruno.pythonanywhere.com/api/products/`, {
-        headers: {
-          Authorization: `JWT ${localStorage.getItem("accessToken")}`,
-        },
-      })
-      .then((res) => {
-        setProducts(res.data.results);
-      });
-  }, []);
-
   return (
     <>
       <div className="bg-white mt-0 py-4">

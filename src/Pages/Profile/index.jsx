@@ -32,7 +32,6 @@ export default function Profile({userData, setUserData}) {
     let data = {...changedUserData}
     data[e.target.name] = e.target.value;
     setChangedUserData(data)
-    console.log(data)
   }
 
   function handlerSubmitUser(e){

@@ -14,12 +14,12 @@ import Contact from "./Components/Contact";
 import Login from "./Components/Authentication/Login";
 import Register from "./Components/Authentication/Register";
 import axios from "axios";
+import jwt from 'jwt-decode'
 import ProductDetails from "./Pages/ProductDetails/index";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 
 export default function App() {
-  const [cartContent, setCartContent] = useState([]);
   const [userData, setUserData] = useState(null);
   let navigate = useNavigate();
 
@@ -49,18 +49,6 @@ export default function App() {
         data["phone"] = res.data.phone;
         localStorage.setItem("role", res.data.role);
       });
-
-      axios.get(`https://muhammadnruno.pythonanywhere.com/api/cart/${localStorage.getItem("id")}`, {
-          headers: {
-            Authorization: `JWT ${localStorage.getItem("accessToken")}`,
-          },
-        }
-      )
-      .then((res) => {
-        setCartContent(res.data);
-      })
-
-    setUserData(data);
   }
 
   function logOut() {
@@ -70,8 +58,10 @@ export default function App() {
   }
 
   function ProtectedRoute(props) {
-    if (localStorage.getItem("id") === null) return navigate("/login");
-    else return props.children;
+    if (localStorage.getItem("id") === null)
+      return navigate("/login");
+    else 
+      return props.children;
   }
 
   return (
@@ -81,15 +71,15 @@ export default function App() {
           :
           <></>
         }
-        <Navbar cartContent = {cartContent} logOut = {logOut}/>
+        <Navbar logOut = {logOut}/>
         <Routes>
           <Route path = "" element = {<Home/>}/>
           <Route path = "/home" element = {<Home/>}/>
-          <Route path = "/cart" element = {<ProtectedRoute> <Cart cartContent = {cartContent} setCartContent = {setCartContent}/> </ProtectedRoute>}/>
+          {/* <Route path = "/cart" element = {<ProtectedRoute> <Cart/> </ProtectedRoute>}/>
           <Route path = "/profile" element = {<ProtectedRoute> <Profile userData = {userData} setUserData={setUserData}/> </ProtectedRoute>}/>
           <Route path = "/shop" element = {<Shop/>}/>
-          <Route path = "/product" element = {<ProductDetails cartContent = {cartContent}/>}/>
-          <Route path = "/product/:id" element = {<ProductDetails cartContent = {cartContent}/>}/>
+          <Route path = "/product" element = {<ProductDetails/>}/>
+          <Route path = "/product/:id" element = {<ProductDetails/>}/> */}
           <Route path = "/login" element = {<Login getUserData={getUserData}/>}/>
           <Route path = "/register" element = {<Register/>}/>
           <Route path = "*" element = {<NotFound/>}/>
